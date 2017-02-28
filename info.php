@@ -13,6 +13,7 @@ $type = $update["message"]["chat"]["type"];
 $for = $update["message"]["from"]["id"];
 $chatId = $update["message"]["chat"]["id"];
 $message = $update["message"]["text"];
+$message_id = $update["message"]["message_id"];
 $user = $update["message"]["from"]["username"];
 $nam = $update["message"]["from"]["first_name"];
 $fwd_name = $update["message"]["forward_from"]["first_name"];
@@ -23,8 +24,8 @@ sendMessage($chatId, "💡Id : " . $for . "\n💡User : " . "@" . $user . "\n�
 if ($fwd2 && $type == "private"){
 sendMessage($chatId, "💡Id : " . $fwd2 . "\n💡user : " . "@" . $user2 . "\n💡Name : " . $fwd_name);	
 }
-function sendMessage ($chatId, $message, $mods = null){
-$url = $GLOBALS[website]."/sendMessage?chat_id="$chatId"&text=".urlencode($message)."&parse_mode=$mods&disable_web_page_preview=true";
+function sendMessage ($chatId, $message, $mods = null, $msg_id = null){
+$url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".urlencode($message)."&parse_mode=".$mods."&disable_web_page_preview=true&reply_to_message_id=".$msg_id;
 file_get_contents($url);
 }
 ?>
