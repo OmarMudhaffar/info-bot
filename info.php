@@ -23,12 +23,9 @@ sendMessage($chatId, "💡Id : " . $for . "\n💡User : " . "@" . $user . "\n�
 if ($fwd2 && $type == "private"){
 sendMessage($chatId, "💡Id : " . $fwd2 . "\n💡user : " . "@" . $user2 . "\n💡Name : " . $fwd_name);	
 }
-function sendMessage ($chatId, $message){
-		
-
-		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".urlencode($message);
-		file_get_contents($url);
-		}
-
-		?>
+function sendMessage ($chatId, $message, $mods = null){
+$url = $GLOBALS[website]."/sendMessage?chat_id="$chatId"&text=".urlencode($message)."&parse_mode=$mods&disable_web_page_preview=true";
+file_get_contents($url);
+}
+?>
 		
