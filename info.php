@@ -28,4 +28,5 @@ $url = $GLOBALS[website]."/sendMessage?chat_id="$chatId"&text=".urlencode($messa
 file_get_contents($url);
 }
 ?>
-		
+
+
