@@ -1,5 +1,5 @@
 <?php
-$botToken = ""; // توكن البوت
+$botToken = " " // توكن البوت;
 $website = "https://api.telegram.org/bot".$botToken;
 $update = file_get_contents('php://input');
 $update = json_decode($update, TRUE);
@@ -24,9 +24,10 @@ if ($fwd2 && $type == "private"){
 sendMessage($chatId, "💡Id : " . $fwd2 . "\n💡user : " . "@" . $user2 . "\n💡Name : " . $fwd_name);	
 }
 function sendMessage ($chatId, $message){
-$url = $GLOBALS[website]."/sendMessage?chat_id="$chatId"&text=".urlencode($message);
-file_get_contents($url);
-}
-?>
+		
 
+		$url = $GLOBALS[website]."/sendMessage?chat_id=".$chatId."&text=".urlencode($message);
+		file_get_contents($url);
+		}
 
+		?>
